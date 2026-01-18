@@ -1,0 +1,69 @@
+def visualize_ocr_logic(image_path: str):
+    binary_img = preprocess_image(image_path)
+    original_rgb = cv2.imread(image_path)
+    original_rgb_plot = cv2.cvtColor(original_rgb, cv2.COLOR_BGR2RGB)
+    h, w = binary_img.shape
+    best_shear = 0
+    max_score = -1
+    shear_range = np.linspace(-0.5, 0.5, 21)
+    for shear in shear_range:
+        M = np.float32([[1, shear, 0], [0, 1, 0]])
+        sheared_img = cv2.warpAffine(binary_img, M, (w, h), flags=cv2.INTER_NEAREST)
+        hist = np.sum(sheared_img, axis=0)
+        score = np.sum((hist[1:] - hist[:-1]) ** 2)
+        if score > max_score:
+            max_score = score
+            best_shear = shear
+    M_best = np.float32([[1, best_shear, 0], [0, 1, 0]])
+    final_img = cv2.warpAffine(binary_img, M_best, (w, h), flags=cv2.INTER_NEAREST)
+    vertical_hist = np.sum(final_img, axis=0) / 255
+    segment_coords = []
+    in_segment = False
+    start_col = 0
+    pixel_sum_boundary_threshold = 0
+    for col in range(w):
+        pixel_sum = vertical_hist[col]
+        if pixel_sum > 0 and not in_segment:
+            in_segment = True
+            start_col = col
+        elif pixel_sum == pixel_sum_boundary_threshold and in_segment:
+            in_segment = False
+            segment_coords.append((start_col, col))
+            
+    if in_segment:
+        segment_coords.append((start_col, w))
+
+    fig, axes = plt.subplots(4, 1, figsize=(10, 16))
+
+    axes[0].imshow(original_rgb_plot)
+    axes[0].set_title("1. Original RGB Image (Raw Input)")
+    axes[0].axis('off')
+
+    axes[1].imshow(binary_img, cmap='gray')
+    axes[1].set_title("2. Preprocessed Binary Image (Inverted)")
+    axes[1].axis('off')
+
+    axes[2].plot(vertical_hist, color='black', linewidth=1.5)
+    axes[2].fill_between(range(len(vertical_hist)), vertical_hist, color='gray', alpha=0.3)
+    axes[2].set_title(f"3. Vertical Histogram (Generated at Optimal Shear: {best_shear:.2f})")
+    axes[2].set_xlim(0, w)
+    axes[2].set_ylabel("Pixel Sum")
+    axes[2].grid(True, linestyle='--', alpha=0.5)
+
+    axes[3].imshow(binary_img, cmap='gray')
+    axes[3].set_title("4. Segments Projected onto Original Binary Image")
+    axes[3].axis('off')
+
+    for (start, end) in segment_coords:
+        tl_x = start - (best_shear * 0)
+        tr_x = end   - (best_shear * 0)
+        br_x = end   - (best_shear * h)
+        bl_x = start - (best_shear * h)
+        
+        pts = np.array([[tl_x, 0], [tr_x, 0], [br_x, h], [bl_x, h]])
+        
+        poly = Polygon(pts, closed=True, edgecolor='red', facecolor='none', linewidth=2, linestyle='-')
+        axes[3].add_patch(poly)
+
+    plt.tight_layout()
+    plt.show()
