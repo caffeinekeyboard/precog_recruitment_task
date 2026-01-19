@@ -82,12 +82,9 @@ The core recognizer is a Convolutional Neural Network $f_\theta$ designed to cla
 The Bonus Task introduces a logical XOR gate dependent on spectral properties.  As defined in the task requirements, the text is rendered in reverse if the background is red. We compute the mean intensity vectors for the Red ($\mu_R$) and Green ($\mu_G$) channels.
 
 The transformation function $T(S)$ is defined as:
+
 $$
-T(S) = 
-\begin{cases} 
-\text{Reverse}(S) & \text{if } \mu_R > (\mu_G + \delta) \\
-S & \text{otherwise}
-\end{cases}
+T(S) = \begin{cases} \text{Reverse}(S) & \text{if } \mu_R > (\mu_G + \delta) \\\\ S & \text{otherwise} \end{cases}
 $$
 
  This requires the inference pipeline to first classify spectral dominance, predict the sequence, and conditionally invert the string result to solve the generation task.
