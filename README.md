@@ -58,6 +58,13 @@ $$
 
 This creates distinct "valleys" in the histogram, allowing for effective character segmentation $S=\{s_1, s_2, \dots, s_n\}$.
 
+<table>
+  <tr>
+    <td><img src="images/ocr_segmentation_vizualized.png" width="300"></td>
+    <td><img src="images/ocr_segmentation_vizualized_italics.png" width="300"></td>
+  </tr>
+</table>
+
 ### 2.3 Neural Architecture: CharNet
 
 The core recognizer is a Convolutional Neural Network $f_\theta$ designed to classify individual character segments $s_i \in \mathbb{R}^{32 \times 32}$.
