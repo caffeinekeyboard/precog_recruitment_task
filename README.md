@@ -10,7 +10,12 @@
 
 ## 1. Problem Formulation
 
-We define the CAPTCHA breaking task as a mapping function $\Phi: \mathcal{I} \to \mathcal{S}^*$, where $\mathcal{I} \subseteq \mathbb{R}^{H \times W \times C}$ represents the image space and $\mathcal{S}^*$ represents the set of all possible finite strings over a vocabulary $\Sigma$ (alphanumeric characters).
+We define the CAPTCHA breaking task as a mapping function represents the image space and $\mathcal{S}^*$ represents the set of all possible finite strings over a vocabulary $\Sigma$ (alphanumeric characters).
+
+$$
+\lambda^* = \arg\max_{\lambda} \sum_x \left( \frac{d}{dx} V_\lambda(x) \right)^2
+$$
+
 The project addresses three distinct levels of complexity defined in the task specifications:
 1.  **Task 1 (Classification):** Learning a mapping $f: \mathcal{I} \to Y$ where $Y \subset \mathcal{S}^*$ is a closed set of 100 labels.
 2.  **Task 2 (Generation):** Learning a generalized mapping for variable-length sequences where $S_{out} = \{c_1, c_2, \dots, c_n\}$.
