@@ -42,11 +42,18 @@ $$t^* = \operatorname*{arg\,max}_{0 \le t \le L-1} [\omega_0(t) \omega_1(t) (\mu
 
 #### 2.2.2 Segmentation via Shear-Corrected Projection
 To resolve character overlap caused by italicized fonts, we introduce a shear transformation matrix $M_\lambda$:
-$$M_\lambda = \begin{bmatrix} 1 & \lambda \\ 0 & 1 \end{bmatrix}$$
+
+$$
+M_\lambda = \begin{bmatrix} 1 & \lambda \\ 0 & 1 \end{bmatrix}
+$$
 
 We define the Vertical Projection Profile $V_\lambda(x)$ of the sheared image $I' = M_\lambda I$. The optimal shear $\lambda^*$ is found by maximizing the variance of the derivative of the projection (a sharpness heuristic):
-$$\lambda^* = \operatorname*{arg\,max}_{\lambda} \sum_x \left( \frac{d}{dx} V_\lambda(x) \right)^2$$
-This creates distinct "valleys" in the histogram, allowing for effective character segmentation $S = \{s_1, s_2, \dots, s_n\}$.
+
+$$
+\lambda^* = \operatorname*{arg\,max}_{\lambda} \sum_x \left( \frac{d}{dx} V_\lambda(x) \right)^2
+$$
+
+This creates distinct "valleys" in the histogram, allowing for effective character segmentation $S=\{s_1, s_2, \dots, s_n\}$.
 
 ### 2.3 Neural Architecture: CharNet
 
