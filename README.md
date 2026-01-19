@@ -38,7 +38,10 @@ Before neural inference, input $x$ undergoes a rigorous preprocessing pipeline t
 
 #### 2.2.1 Binarization via Inter-Class Variance Maximization
 We utilize Otsu's method to determine the optimal global threshold $t^*$ that separates foreground (text) from background. We maximize the inter-class variance $\sigma_B^2(t)$:
-$$t^* = \operatorname*{arg\,max}_{0 \le t \le L-1} [\omega_0(t) \omega_1(t) (\mu_0(t) - \mu_1(t))^2]$$
+
+$$
+t^* = \underset{0 \le t \le L-1}{\mathrm{arg\,max}} [\omega_0(t) \omega_1(t) (\mu_0(t) - \mu_1(t))^2]
+$$
 
 #### 2.2.2 Segmentation via Shear-Corrected Projection
 To resolve character overlap caused by italicized fonts, we introduce a shear transformation matrix $M_\lambda$:
