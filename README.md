@@ -50,7 +50,7 @@ $$
 We define the Vertical Projection Profile $V_\lambda(x)$ of the sheared image $I' = M_\lambda I$. The optimal shear $\lambda^*$ is found by maximizing the variance of the derivative of the projection (a sharpness heuristic):
 
 $$
-\lambda^* = \operatorname*{arg\,max}_{\lambda} \sum_x \left( \frac{d}{dx} V_\lambda(x) \right)^2
+\lambda^* = \underset{\lambda}{\mathrm{arg\,max}} \sum_x \left( \frac{d}{dx} V_\lambda(x) \right)^2
 $$
 
 This creates distinct "valleys" in the histogram, allowing for effective character segmentation $S=\{s_1, s_2, \dots, s_n\}$.
