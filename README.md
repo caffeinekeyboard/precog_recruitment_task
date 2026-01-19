@@ -47,7 +47,7 @@ $$
 To resolve character overlap caused by italicized fonts, we introduce a shear transformation matrix $M_\lambda$:
 
 $$
-M_\lambda = \begin{bmatrix} 1 & \lambda \\ 0 & 1 \end{bmatrix}
+M_\lambda = \begin{bmatrix} 1 & \lambda \\\\ 0 & 1 \end{bmatrix}
 $$
 
 We define the Vertical Projection Profile $V_\lambda(x)$ of the sheared image $I' = M_\lambda I$. The optimal shear $\lambda^*$ is found by maximizing the variance of the derivative of the projection (a sharpness heuristic):
