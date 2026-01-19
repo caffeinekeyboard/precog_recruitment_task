@@ -60,8 +60,8 @@ This creates distinct "valleys" in the histogram, allowing for effective charact
 
 <table>
   <tr>
-    <td><img src="images/ocr_segmentation_vizualized.png" width="300"></td>
-    <td><img src="images/ocr_segmentation_vizualized_italics.png" width="300"></td>
+    <td><img src="images/ocr_segmentation_vizualized.png" width="400"></td>
+    <td><img src="images/ocr_segmentation_vizualized_italics.png" width="400"></td>
   </tr>
 </table>
 
