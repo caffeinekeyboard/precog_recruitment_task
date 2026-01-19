@@ -4,6 +4,10 @@
 
 ---
 
+## NOTE: Some of the mathematical notation does not render properly in GitHub's display of README.md. Please clone this repository and preview the README with any modern IDE like VSCode.
+
+---
+
 ## 1. Problem Formulation
 
 We define the CAPTCHA breaking task as a mapping function $\Phi: \mathcal{I} \to \mathcal{S}^*$, where $\mathcal{I} \subseteq \mathbb{R}^{H \times W \times C}$ represents the image space and $\mathcal{S}^*$ represents the set of all possible finite strings over a vocabulary $\Sigma$ (alphanumeric characters).
