@@ -114,6 +114,6 @@ predict_bonus_captcha(model, "path/to/image.png", device)
 
 | Category | Sample 1 | Sample 2 |
 | :---: | :---: | :---: |
-| **Easy** | <img src="/home/caffeinekeyboard/Codex/Precog/precog_recruitment_task/sample_data/generated/easy/0RQZ2N.png" width="200" alt="Easy Sample 1"> | <img src="/home/caffeinekeyboard/Codex/Precog/precog_recruitment_task/sample_data/generated/easy/1LNZCSQ7.png" width="200" alt="Easy Sample 2"> |
-| **Hard** | <img src="/home/caffeinekeyboard/Codex/Precog/precog_recruitment_task/sample_data/generated/hard/0HQW.png" width="200" alt="Hard Sample 1"> | <img src="/home/caffeinekeyboard/Codex/Precog/precog_recruitment_task/sample_data/generated/hard/1FUXEGG.png" width="200" alt="Hard Sample 2"> |
-| **Bonus** | <img src="/home/caffeinekeyboard/Codex/Precog/precog_recruitment_task/sample_data/generated/bonus/0T79AZ.png" width="200" alt="Bonus Sample 1"> | <img src="/home/caffeinekeyboard/Codex/Precog/precog_recruitment_task/sample_data/generated/bonus/2P48.png" width="200" alt="Bonus Sample 2"> |
+| **Easy** | <img src="sample_data/generated/easy/0RQZ2N.png" width="200" alt="Easy Sample 1"> | <img src="sample_data/generated/easy/1LNZCSQ7.png" width="200" alt="Easy Sample 2"> |
+| **Hard** | <img src="sample_data/generated/hard/0HQW.png" width="200" alt="Hard Sample 1"> | <img src="sample_data/generated/hard/1FUXEGG.png" width="200" alt="Hard Sample 2"> |
+| **Bonus** | <img src="sample_data/generated/bonus/0T79AZ.png" width="200" alt="Bonus Sample 1"> | <img src="sample_data/generated/bonus/2P48.png" width="200" alt="Bonus Sample 2"> |
