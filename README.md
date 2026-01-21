@@ -67,7 +67,11 @@ This creates distinct "valleys" in the histogram, allowing for effective charact
 
 ### 2.3 Neural Architecture: CharNet
 
-The core recognizer is a Convolutional Neural Network $f_\theta$ designed to classify individual character segments $s_i \in \mathbb{R}^{32 \times 32}$.
+The core recognizer is a Convolutional Neural Network $f_\theta$ designed to classify individual character segments 
+
+$$
+s_i \in \mathbb{R}^{32 \times 32}
+$$
 
 **Architecture Definition:**
 * **Input:** $X_0 \in \mathbb{R}^{32 \times 32 \times 1}$
